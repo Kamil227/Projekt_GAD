@@ -68,7 +68,6 @@ test.describe("Locator filters", () => {
     test("Single button click (using filter and has)", async ({ page }) => {
       const elementRole = "button";
       const parentRole = "row";
-      const parentText = "Row 2";
       const expectedMessage = "You clicked the button! (row 2)";
       const resultTestID = "dti-results";
       const resultLocator = page.getByTestId(resultTestID);
