@@ -22,13 +22,16 @@ test("reservation)", async ({ page }) => {
     const resultTestID = "dti-results";
     const resultLocator = page.getByTestId(resultTestID)
 
+    const clearButtonName = 'Clear'
+    const clearButtonType = 'button'
+
 
     const reservationLocator = page
     .locator(reservationTr, {hasText: reservationDate})
     .getByRole(reservationButton, { name: reservationText})
 
     const checkoutButtonLocator = page.getByRole(checkoutButtonType, {name: checkoutButtonName})
-
+    const clearButtonLocator = page.getByRole(clearButtonType, {name: clearButtonName})
 
 
     await foodLocator.check()
@@ -37,6 +40,10 @@ test("reservation)", async ({ page }) => {
 
     await expect(resultLocator).toHaveText(expectedMessage)
 
+    await clearButtonLocator.click()
+
+    await expect(foodLocator).not.toBeChecked()
+    await expect(reservationLocator).toHaveCSS('background-color','rgb(237, 237, 240)')
 
 
 
