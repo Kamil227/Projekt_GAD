@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("Finding elements using getByTestId and locators", () => {
+test.describe("Rezerwacja", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/practice/simple-reservation-v1.html");
   });
@@ -19,7 +19,7 @@ test("reservation)", async ({ page }) => {
     const checkoutButtonType = 'button'
 
     const expectedMessage = "Reservation for 23.10.2024 with features: Food for total price: 150$"
-    const resultTestID = "dti-results";
+    const resultTestID = "dti-results-container";
     const resultLocator = page.getByTestId(resultTestID)
 
     const clearButtonName = 'Clear'
