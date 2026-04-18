@@ -8,7 +8,7 @@ export default defineConfig({
   use: {
     baseURL: "http://localhost:3000",
     trace: "on",
-    //testIdAttribute: 'pw-test'
+    testIdAttribute: 'pw-test'
   },
   projects: [
     {
