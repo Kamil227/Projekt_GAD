@@ -15,4 +15,13 @@ test.describe("Find checkbox", () => { // Tworzy grupę testów.
 
   });
 
+  test("Checkbox", async ({ page }) => { 
+    const withIdsPage = new WithIdsPage(page);
+    const expectmessage = "Checkbox is checked!"
+
+    await withIdsPage.checkbox.check()
+    await expect(withIdsPage.result).toHaveText(expectmessage)
+
+  });
+
 });
