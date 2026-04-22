@@ -1,9 +1,8 @@
 import { Locator, Page } from "@playwright/test";
+import { basePage } from "./basePage.page";
 
-export class WithIdsPage {
-  readonly page: Page;
+export class WithIdsPage extends basePage {
   readonly checkbox: Locator;
-  readonly result: Locator;
   readonly input: Locator;
   readonly clickMe: Locator;
   readonly textArea: Locator;
@@ -16,9 +15,8 @@ export class WithIdsPage {
 
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.clickMe = page.getByRole("button", { name: "Click me!" });
-    this.result = page.locator("#results-container").locator("#results");
     this.checkbox = page.locator("#id-checkbox");
     this.input = page.locator("#id-input");
     this.textArea = page.locator('#id-textarea')
